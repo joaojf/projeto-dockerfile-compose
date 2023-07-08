@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  nginx:
+    build: .
+    container_name: nginx
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: "512M"
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "8080:80"
